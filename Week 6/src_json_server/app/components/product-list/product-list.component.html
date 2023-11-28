@@ -1,0 +1,10 @@
+<h1>Products List Components</h1>
+
+<button type="submit" class="btn btn-success" (click)="getAll()">Submit</button>
+<table class="table table-success table-striped">
+    <tr *ngFor="let products of productList" class="table table-success table-striped">
+        <td>{{products.pid}}</td>
+        <td>{{products.pname}}</td>
+        <td>{{products.pprice}}</td>
+    </tr>
+</table>

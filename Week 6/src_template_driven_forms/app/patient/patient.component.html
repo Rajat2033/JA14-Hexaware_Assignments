@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration</title>
+</head>
+
+<body>
+
+    <form class="container col-lg-4" #patientForm="ngForm" (ngSubmit)="getData(patientForm)">
+        <h1 class="alert-success">Patient Registration Page</h1>
+
+        <label>Enter Full Name </label>
+        <input type="text" class="form-control" name="patientName" ngModel #name="ngModel" required>
+        <span style="color:red" *ngIf="name.untouched&& name.invalid">Name is Required</span><br><br>
+
+        <label>Enter Email Id</label>
+        <input type="email" class="form-control" name="email" ngModel #email="ngModel" required>
+        <span style="color:red" *ngIf="email.touched&&email.invalid">Enter Email Properly</span><br><br>
+        <label>Enter Your age</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="age" id="age1" required value=0-30 ngModel>
+            <label class="form-check-label" for="age1">
+                0-30
+            </label>
+            <span></span>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="age" id="age2" value=30-60 ngModel>
+            <label class="form-check-label" for="age2">
+                30-60
+            </label>
+        </div>
+
+        <label>Select Your Gender</label>
+        <select class="form-control" name="gender" ngModel #gender="ngModel" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <span style="color:red" *ngIf="gender.touched && gender.invalid">Select Gender properly</span><br><br>
+    
+
+        <label>Enter your contact No</label>
+        <div>
+            <input type="tel" class="form-control" name="contact" id="contact" ngModel #contact="ngModel">
+            <span style="color: red" *ngIf="contact.touched&& contact.hasError">Enter Contact Number Properly</span>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-success form-control" [disabled]="patientForm.invalid && patientForm.hasError">Submit</button>
+    </form>
+
+</body>
+
+</html>

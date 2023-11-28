@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reactive Approach</title>
+</head>
+
+<body>
+  <div class="container col-lg-4">
+    <form [formGroup]="registerFormsGroup" (ngSubmit)="onSubmit()">
+      <h1>Registration Page</h1>
+      <div class="form-control ">
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" class="form-control"
+          [ngClass]="{'is-invalid':submitted && f['firstName'].errors}">
+        <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+          <div *ngIf=" f['firstName'].errors['required']">First Name is Required</div>
+          <div *ngIf="f['firstName'].errors['minlength']">Minimum lenth is 6</div>
+          <div *ngIf="f['firstName'].errors['maxlength']">Maximum length is 15</div>
+        </div>
+      </div>
+
+      <div class="form-control ">
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control"
+          [ngClass]="{'is-invalid':submitted && f['lastName'].errors}">
+        <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+          <div *ngIf=" f['lastName'].errors['required']">Last Name is Required</div>
+        </div>
+      </div>
+      <div class="form-control ">
+        <label>email id</label>
+        <input type="text" formControlName="emailId" class="form-control"
+          [ngClass]="{'is-invalid':submitted && f['emailId'].errors}">
+        <div *ngIf="submitted && f['emailId'].errors" class="invalid-feedback">
+          <div *ngIf=" f['emailId'].errors['required']">Email  is Required</div>
+          <div *ngIf="f['emailId'].errors['email']">Invalid email format</div>
+        </div>
+      </div>
+
+      <div class="form-control ">
+        <label>Password</label>
+        <input type="text" formControlName="password" class="form-control"
+          [ngClass]="{'is-invalid':submitted && f['password'].errors}">
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+          <div *ngIf=" f['password'].errors['required']">Password  is Required</div>
+          <div *ngIf="f['password'].errors['minlength']">Minimum length is 8</div>
+          <div *ngIf="f['password'].errors['maxlength']">Maximum length is 10</div>
+        </div>
+      </div>
+      <div class="form-control">
+        <button  class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
