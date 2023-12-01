@@ -1,0 +1,37 @@
+
+<div class="container col-md-4" ><p>demo works!</p>
+
+<h1 [ngStyle]="{color:styleColour}">Welcome id : {{id}} name : {{name}}</h1>
+
+<form class="form-group">
+    <label class="control-label">Enter Id</label>
+    <input type="number" class="form-control" name="id" [(ngModel)]="id"  placeholder="id" required>
+
+    <label class="control-label">Enter Name</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="name" required><br>
+
+    <button type="submit" class="btn btn-primary" (click)="getData()">Submit</button>
+</form>
+
+<img [src]=imgsrc>
+
+<table class="table table-striped table-bordered">
+    <tr class="table-strip">
+        <th>Id</th>
+        <th>Name</th>
+       
+    </tr>
+    <tr *ngFor="let user of playerList">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+    </tr>
+</table>
+<label class="control-label"> Enter Player Name:</label>
+<input type="text" class="form-control" name="name" [(ngModel)]="player" placeholder="name" required><br>
+<div [ngSwitch]="player">
+    <div *ngSwitchCase="'Ishan'"><img src="../../../assets/ishan.png"></div>
+    <div *ngSwitchCase="'Rohit'"><img src="../../../assets/rohit.png"></div>
+    <div *ngSwitchDefault=""><img src="../../../assets/virat.png"></div>
+</div>
+
+</div>
