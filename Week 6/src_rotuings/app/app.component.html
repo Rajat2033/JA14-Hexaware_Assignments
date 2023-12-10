@@ -1,0 +1,13 @@
+<H1> welcome to App Component</H1>
+<a routerLink="/home">Home</a>
+<br><br>
+<button type="button" [routerLink]="'/contact/'+username" class="btn btn-success">Contact</button>
+
+<ul>
+    <li><a routerLink="/about" [queryParams]="{city:'NGP' ,country:'india'}">About</a></li>
+    <li ><a routerLink="/callnow">Call Now</a></li>
+    <li ><a routerLink="/">Back to home</a></li>
+</ul>
+
+
+<router-outlet></router-outlet>
