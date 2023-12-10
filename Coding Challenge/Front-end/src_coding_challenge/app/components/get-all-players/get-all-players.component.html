@@ -1,0 +1,30 @@
+<button class="btn-success" (click)="getAllPlayersData()">Get All Players Data</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Jersey Number</th>
+            <th>Roles</th>
+            <th>TotalMatches</th>
+            <th>Team Name</th>
+            <th>Country Name</th>
+            <th>Some description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of playerList,index as i">
+            <td>{{i+1}}</td>
+            <td>{{player.playerId}}</td>
+            <td>{{player.playerName}}</td>
+            <td>{{player.playerJerseyNumber}}</td>
+            <td>{{player.playerRole}}</td>
+            <td>{{player.playerTotalMatches}}</td>
+            <td>{{player.playerTeamName}}</td>
+            <td>{{player.countryName}}</td>
+            <td>{{player.playerDescription}}</td>
+            
+        </tr>
+    </tbody>
+</table>
